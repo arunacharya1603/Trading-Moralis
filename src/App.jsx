@@ -48,32 +48,33 @@ function App() {
     setSelectedToken(selectedToken);
     try {
       // Validate Solana address
-      console.log("Selected valid Solana token:", selectedToken);
     } catch (error) {
       console.error("Invalid Solana address");
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0f1724]">
-      <header className="bg-[#1a2332] text-gray-200 px-6 py-4 border-b border-gray-700/50">
-        <div className="max-w-7xl mx-auto flex items-center">
-          <h1 className="text-xl font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0f1724] to-[#1a2332]">
+      <header className="bg-[#1a2332]/80 backdrop-blur-md text-gray-200 px-4 sm:px-6 py-4 border-b border-gray-700/50 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             My Dapp
           </h1>
         </div>
       </header>
       
-      <main className="flex-1 p-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-[#1a2332] rounded-lg shadow-xl border border-gray-700/30 backdrop-blur-sm p-4">
-            <div className="mb-4">
-              <label className="block text-gray-200 mb-2">Select PumpFun Token</label>
+      <main className="flex-1 p-0 sm:p-6 lg:p-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="bg-[#1a2332]/80 backdrop-blur-md rounded-xl shadow-2xl border border-gray-700/30 px-2 sm:p-6 pt-8 sm:pt-10">
+            <div className="mb-6">
+              <label className="block text-gray-200 text-lg font-medium mb-3">Select PumpFun Token</label>
               <select 
                 onChange={handleTokenSelect}
-                className="w-48 p-2 bg-[#0f1724] text-gray-200 rounded border border-gray-700/50"
+                className="w-full sm:w-64 p-3 bg-[#0f1724] text-gray-200 rounded-lg border border-gray-700/50 
+                           hover:border-blue-400/50 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 
+                           transition-all duration-200 outline-none cursor-pointer"
               >
-                <option value="">Select a token</option>
+                <option value="">Choose a token</option>
                 {solanaTokens.map((token) => (
                   <option key={token.address} value={token.address}>
                     {token.symbol} - {token.name}
@@ -86,8 +87,10 @@ function App() {
         </div>
       </main>
       
-      <footer className="bg-[#1a2332] text-gray-500 py-3 text-center text-xs border-t border-gray-700/50">
-        © 2024 My Dapp
+      <footer className="bg-[#1a2332]/80 backdrop-blur-md text-gray-400 py-4 text-sm border-t border-gray-700/50">
+        <div className="max-w-7xl mx-auto text-center">
+          © 2024 My Dapp • All rights reserved
+        </div>
       </footer>
     </div>
   )

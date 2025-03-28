@@ -4,6 +4,18 @@ function TradingViewChart({ tokenAddress }) {
     const container = useRef();
 
     useEffect(() => {
+        if (!tokenAddress) {
+            // Clean up existing widget container and script
+            const existingContainer = document.getElementById('price-chart-widget-container');
+            if (existingContainer) {
+                existingContainer.innerHTML = '';
+            }
+            const script = document.getElementById('moralis-chart-widget');
+            if (script) {
+                script.remove();
+            }
+            return;
+        }
 
         function loadWidget() {
             // Add retry mechanism
@@ -52,11 +64,72 @@ function TradingViewChart({ tokenAddress }) {
         } else {
             loadWidget();
         }
+
+        // Cleanup function
+        return () => {
+            const existingContainer = document.getElementById('price-chart-widget-container');
+            if (existingContainer) {
+                existingContainer.innerHTML = '';
+            }
+            const script = document.getElementById('moralis-chart-widget');
+            if (script) {
+                script.remove();
+            }
+        };
     }, [tokenAddress]);
 
+    // Update the no-token placeholder
+    if (!tokenAddress) {
+        return (
+            <div 
+                key="no-token"
+                style={{ 
+                    width: "100%", 
+                    height: "60vh", 
+                    display: "flex", 
+                    flexDirection: "column",
+                    alignItems: "center", 
+                    justifyContent: "center",
+                    backgroundColor: "#071321",
+                    color: "#68738D",
+                    borderRadius: "12px",
+                    padding: "2rem"
+                }}
+            >
+                <svg 
+                    className="w-16 h-16 mb-4 opacity-60" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-7h2v2h-2v-2zm0-8h2v6h-2V5z"/>
+                </svg>
+                <p className="text-lg text-center mb-2">No Token Selected</p>
+                <p className="text-sm text-center opacity-75">Please select a token from the dropdown above to view its price chart</p>
+            </div>
+        );
+    }
+
     return (
-        <div id="price-chart-widget-container" ref={container} style={{ width: "90vw", height: "70vh" }}>
-            <div className="tradingview-widget-container__widget" style={{ height: "100%", width: "100%" }}></div>
+        <div 
+            key={tokenAddress}
+            id="price-chart-widget-container" 
+            ref={container} 
+            style={{ 
+                width: "100%", 
+                height: "60vh",
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            }}
+        >
+            <div 
+                className="tradingview-widget-container__widget" 
+                style={{ 
+                    height: "100%", 
+                    width: "100%",
+                    backgroundColor: "#071321" 
+                }}
+            ></div>
         </div>
     );
 }
