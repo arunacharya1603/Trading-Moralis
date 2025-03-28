@@ -89,7 +89,7 @@ function App() {
       
       <footer className="bg-[#1a2332]/80 backdrop-blur-md text-gray-400 py-4 text-sm border-t border-gray-700/50">
         <div className="max-w-7xl mx-auto text-center">
-          © 2024 My Dapp • All rights reserved
+          © {new Date().getFullYear()} <a target="_blank" rel="noopener noreferrer" href="https://github.com/arunacharya1603" className="hover:text-blue-400">arunacharya1603</a> • All rights reserved
         </div>
       </footer>
     </div>

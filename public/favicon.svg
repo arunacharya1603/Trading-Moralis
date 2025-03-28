@@ -1,0 +1,18 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="8" cy="8" r="7.5" fill="url(#gradient)" stroke="url(#strokeGradient)"/>
+  <path d="M8 3.5C5.51472 3.5 3.5 5.51472 3.5 8C3.5 10.4853 5.51472 12.5 8 12.5C10.4853 12.5 12.5 10.4853 12.5 8C12.5 5.51472 10.4853 3.5 8 3.5ZM8 11.5C6.067 11.5 4.5 9.933 4.5 8C4.5 6.067 6.067 4.5 8 4.5C9.933 4.5 11.5 6.067 11.5 8C11.5 9.933 9.933 11.5 8 11.5Z" 
+        fill="white" fill-opacity="0.9"/>
+  <path d="M8.75 7.25C8.75 6.83579 8.41421 6.5 8 6.5C7.58579 6.5 7.25 6.83579 7.25 7.25V7.75H8.75V7.25ZM7.25 8.75V9.25C7.25 9.66421 7.58579 10 8 10C8.41421 10 8.75 9.66421 8.75 9.25V8.75H7.25Z" 
+        fill="white" fill-opacity="0.9"/>
+  <rect x="7.25" y="7.75" width="1.5" height="1" fill="white" fill-opacity="0.9"/>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="16" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="strokeGradient" x1="0" y1="0" x2="16" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+</svg> 
