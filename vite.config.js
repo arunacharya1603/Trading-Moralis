@@ -14,5 +14,8 @@ export default defineConfig({
       zlib: 'browserify-zlib',
       util: 'util',
     }
+  },
+  optimizeDeps: {
+    include: ['axios']
   }
 })
